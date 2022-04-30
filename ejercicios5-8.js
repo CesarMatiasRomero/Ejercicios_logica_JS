@@ -56,21 +56,10 @@ polindromo()
 
 
 
-let eliminarCaracteres = () => {
-    let texto2 = "xyz1, xyz2, xyz3, xyz4, xyz5";
-    let textoSeparado = texto2.split("");
-    let number = "1, 2, 3, 4, 5";
-    let filtrado = [];
-    console.log(textoSeparado);
-    for (let i = 0; i < textoSeparado.length; i++) {
-        if (textoSeparado[i] == number) {
-            filtrado.push(textoSeparado)
-
-    }
-    }
-    
-    return filtrado
+let eliminarCaracteres = (texto = "", patron = "") => {
+    console.log(texto.replace(new RegExp(patron, "ig"), "")); 
 }
 
-eliminarCaracteres()
+eliminarCaracteres("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz")
+    
 
