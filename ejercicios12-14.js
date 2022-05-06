@@ -35,15 +35,16 @@ parImpar();
 // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
 
 let gradosCelsius = (g) => {
-  let celsius = g + 32;
-  console.log("El valor ingresado son " + celsius + " grados Fahrengeit");
+    let fahrenheit = ((g * 1.8) + 32);
+  console.log("El valor ingresado son " + fahrenheit + " grados Fahrengeit");
 };
 
-gradosCelsius(0);
+gradosCelsius(30);
 
 let gradosFahrengeit = (g) => {
-  let fahrenheit = g - 32;
-  console.log("El valor ingresado son " + fahrenheit + " grados Celsius");
+    let celsius = ((g - 32) / 1.8);
+  
+  console.log("El valor ingresado son " + celsius + " grados Celsius");
 };
 
-gradosFahrengeit(32);
+gradosFahrengeit(86);
