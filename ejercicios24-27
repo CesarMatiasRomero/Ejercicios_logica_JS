@@ -1,0 +1,65 @@
+// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+let ordenarNumeros = (num) => {
+    if (num === undefined) return console.warn("No ingresaste un arreglo de numeros");
+    if (!(num instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+    if (num.length === 0) return console.error("El arreglo esta vacio");
+
+    let ascendente = num.sort(function(a,b){
+        return a - b
+    });
+
+    let descendente = num.reverse();
+
+    return `Array de forma ascendente ${ascendente}, array de forma descendiente ${descendente}`
+
+
+}
+
+ordenarNumeros([9,5,3,4,7,6,8,2])
+
+
+// 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+const eliminarDuplicados = (arr) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de numero")
+    if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo")
+    if(arr.length === 1 ) return console.error("El arreglo no se puede filtrar")
+
+    // return console.info({
+    //     sinDuplicados: arr.filter((value, index, self) => self.indexOf(value) === index)
+    // })
+
+    return console.info({
+        sinDuplicados: [... new Set(arr)]
+    })
+}
+
+eliminarDuplicados(["x",1,25,true,"x",25])
+
+
+// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+
+const promedio = (arr) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de numeros");
+    if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+    if (arr.length === 0) return console.error("El arreglo esta vacio");
+
+    for (let num of arr) {
+        if(typeof num != "number") return console.error("El valor ingrsado NO es un numero")
+    }
+
+    return console.info(
+        arr.reduce((total, num, index, arr) => {
+            total += num;
+            if (index === arr.length-1){
+                return `El promedio de ${arr.join(" + ")} es ${total / arr.length}`;
+            }else{
+                return total
+            }
+        }) 
+    )
+}
+
+promedio([5,7,6,9,3,5])
